@@ -3,6 +3,7 @@ using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Configuration;
 using System.Data;
 using System.Data.Common;
+using Microsoft.Extensions.Logging;
 
 namespace Persistence
 {
@@ -14,8 +15,9 @@ namespace Persistence
 
         private static readonly SemaphoreSlim Semaphore = new(100);
 
-        public ConnectionManager(IConfiguration configuration)
+        public ConnectionManager(IConfiguration configuration, ILogger<ConnectionManager> logger)
         {
+            logger.LogInformation("Initializing connection manager");
             if (configuration == null)
                 throw new ArgumentNullException(nameof(configuration));
 
@@ -30,7 +32,7 @@ namespace Persistence
                 if (_dbConnection.State == ConnectionState.Open)
                     return _dbConnection;
 
-                _dbConnection.Dispose();
+                await _dbConnection.DisposeAsync();
             }
 
             await Semaphore.WaitAsync();

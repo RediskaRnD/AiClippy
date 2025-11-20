@@ -5,6 +5,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8586C98A-DFFC-4CFF-BEF2-93C6FC1609E9}"
 	ProjectSection(SolutionItems) = preProject
 		compose.yaml = compose.yaml
+		.gitignore = .gitignore
+		aiClippy.db = aiClippy.db
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controllers", "Controllers\Controllers.csproj", "{DC9A7096-C8E3-4E84-921B-C2EDB3DF3D65}"
