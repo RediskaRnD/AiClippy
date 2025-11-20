@@ -1,0 +1,7 @@
+.dockerignore
+.idea/
+
+*/bin
+*/obj
+
+**/*.DotSettings.user
